@@ -1,0 +1,5 @@
+const ERROR_VALID = 400;
+const ERROR_NOTFOUND = 404;
+const ERROR_DEF = 500;
+
+module.exports = { ERROR_VALID, ERROR_NOTFOUND, ERROR_DEF };
