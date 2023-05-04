@@ -16,11 +16,7 @@ app.use(express.json());
 
 app.use('/cards', auth, require('./routes/cards'));
 app.use('/users', auth, require('./routes/users'));
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
+
 app.use(auth, () => {
   throw new NotFoundError('Такой страницы не существует');
 });
