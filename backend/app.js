@@ -20,7 +20,7 @@ app.get('/crash-test', () => {
 });
 app.use('/cards', auth, require('./routes/cards'));
 app.use('/users', auth, require('./routes/users'));
-
+app.use('/', require('./routes/auth'));
 app.use(auth, () => {
   throw new NotFoundError('Такой страницы не существует');
 });
