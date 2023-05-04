@@ -5,6 +5,11 @@ const { createUser, login } = require('../controllers/users');
 const validateURL = require('../errors/validate-url');
 const validateEmail = require('../errors/validate-email');
 
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 router.post('/signup', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().custom(validateEmail),
