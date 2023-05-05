@@ -20,8 +20,8 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.use('/cards', auth, require('./routes/cards'));
-app.use('/users', auth, require('./routes/users'));
+//app.use('/cards', auth, require('./routes/cards'));
+//app.use('/users', auth, require('./routes/users'));
 // app.use('/', require('./routes/auth'));
 
 app.use(() => {
