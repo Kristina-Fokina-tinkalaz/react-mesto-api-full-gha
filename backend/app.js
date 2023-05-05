@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.get('/crash-test', () => {
   setTimeout(() => {
-    console.log('сервер упал')
+    console.log('сервер упал');
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
@@ -26,7 +26,7 @@ app.use('/users', auth, require('./routes/users'));
 // app.use('/', require('./routes/auth'));
 
 app.use(() => {
-    console.log('переадресация')
+    console.log('переадресация');
   throw new NotFoundError('Такой страницы не существует');
 });
 app.use(errors());
