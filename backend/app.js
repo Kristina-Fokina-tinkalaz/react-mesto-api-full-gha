@@ -5,7 +5,6 @@ const { errors } = require('celebrate');
 const auth = require('./middlewares/auth');
 const cors = require('./middlewares/cors');
 const NotFoundError = require('./errors/not-found-err');
-// const DataExistError = require('./errors/data-exist-err');
 
 const { PORT = 3000 } = process.env;
 
