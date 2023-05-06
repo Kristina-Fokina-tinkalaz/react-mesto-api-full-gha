@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = require('express').Router();
+const cors = require('cors');
 const { errors } = require('celebrate');
 const auth = require('./middlewares/auth');
 const cors = require('./middlewares/cors');
@@ -13,6 +14,7 @@ const app = express();
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/crash-test', () => {
   setTimeout(() => {
@@ -20,8 +22,8 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.use('/cards', auth, cors, require('./routes/cards'));
-app.use('/users', auth, cors, require('./routes/users'));
+app.use('/cards', auth, require('./routes/cards'));
+app.use('/users', auth, require('./routes/users'));
 //app.use('/', require('./routes/auth'));
 
 app.use(() => {
