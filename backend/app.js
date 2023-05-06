@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const router = require('express').Router();
 const { errors } = require('celebrate');
 const auth = require('./middlewares/auth');
+const cors = require('./middlewares/cors');
 const NotFoundError = require('./errors/not-found-err');
 // const DataExistError = require('./errors/data-exist-err');
 
@@ -20,8 +21,8 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.use('/cards', auth, require('./routes/cards'));
-app.use('/users', auth, require('./routes/users'));
+app.use('/cards', auth, cors, require('./routes/cards'));
+app.use('/users', auth, cors, require('./routes/users'));
 //app.use('/', require('./routes/auth'));
 
 app.use(() => {
